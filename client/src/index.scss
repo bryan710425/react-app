@@ -1,0 +1,32 @@
+
+@import './assets/style/variables-base.scss';
+@import './assets/style/variables-main.scss';
+@import './assets/style/mixins.scss';
+
+button{
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  transition: 0.2s;
+  border-radius: 0.25rem;
+  height:2.5rem;
+  @include font-16(500);
+    &.secondary-1 {
+    @include button-secondary-1($secondary-1);
+  }
+    &.secondary-3 {
+    @include button-secondary-3($secondary-3);
+  }
+  &.warning {
+    @include button-warning;
+  }
+    &.gray {
+    @include button-gray;
+  }
+
+}

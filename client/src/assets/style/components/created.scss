@@ -1,0 +1,71 @@
+@import '../../../index.scss';
+.create-page {
+  width: 50%;
+  height: 100%;
+  text-align: left;
+  margin-top: 1rem;
+  &-containers {
+    background-color: $white;
+    height: 22rem;
+    padding: 2rem;
+
+    &-button {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        width: 10rem;
+        &:first-child {
+          margin-right: 0.7rem;
+        }
+      }
+    }
+  }
+  &-title {
+    margin-bottom: 1.5rem;
+    div {
+      @include font-14(500);
+    }
+  }
+  &-text {
+    color: $gray-400;
+  }
+  .back-button {
+    margin-bottom: 1.25rem;
+    justify-content: flex-start;
+    .chevron-back {
+      height: 0.875rem;
+      width: 1rem;
+    }
+    b {
+      @include font-16(bold);
+      color: $secondary-2;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.input-container {
+  width: 100%;
+  height: 3rem;
+  @include input-style;
+
+  &.prompt-required {
+    @include prompt-required;
+  }
+  input {
+    width: calc(100% - 1rem);
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0 0 0 1rem;
+    @include font-14(normal);
+    &:focus {
+      border: 0.0625rem solid $secondary-2;
+    }
+  }
+}
+
+.error-message {
+  color: $warning;
+}

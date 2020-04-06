@@ -1,0 +1,179 @@
+@mixin font-28 ($weight) {
+  font-size: 1.75rem;
+  line-height: 2.625rem;
+  font-weight: $weight;
+}
+
+@mixin font-24 ($weight) {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  font-weight: $weight;
+}
+
+@mixin font-20 ($weight) {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: $weight;
+}
+
+@mixin font-18 ($weight) {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: $weight;
+}
+
+@mixin font-16 ($weight) {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: $weight;
+}
+
+@mixin font-14 ($weight) {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: $weight;
+}
+
+@mixin font-12 ($weight) {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: $weight;
+}
+
+@mixin font-10 ($weight) {
+  font-size: 0.625rem;
+  line-height: 1rem;
+  font-weight: $weight;
+}
+
+@mixin input-style {
+  background: $white;
+  height: 3rem;
+  border: 0.0625rem solid $form-border;
+  border-radius: 0.125rem;
+  @include font-14(normal);
+  cursor: pointer;
+}
+
+@mixin triangle-up($color , $bottom){
+  content: '';
+  position: absolute;
+  border-top: solid 1.25rem $color;
+  border-left: solid 0.625rem #00800000;
+  border-right: solid 0.625rem #00800000;
+  border-bottom: solid 0rem #00800000;
+  transform: rotate(180deg);
+  left: calc(50% - 0.3125rem);
+  bottom: $bottom;
+}
+
+@mixin text-area-style {
+  .text-area-title-bar {
+    display: flex;
+    justify-content: space-between;
+    span {
+      display: block;
+      margin-bottom: 0.25rem;
+      @include font-12(normal);
+      color: $gray-400;
+      &.asterisk {
+        margin-left: 0.3125rem;
+        color: $warning;
+        line-height: 0.8;
+      }
+    }
+  }
+  textarea {
+    width: 100%;
+    height: 8.375rem;
+    border-radius: 0.125rem;
+    border: solid 0.0625rem $form-border;
+    background-color: $white;
+    background: white;
+    padding: 1rem;
+    @include font-14(normal);
+    resize: none;
+    &.prompt-required {
+      @include prompt-required;
+    }
+  }
+}
+
+@mixin button-disabled {
+  &:disabled {
+    background: linear-gradient(#CDCDCD, #C8C8C8);
+    border: 0.0625rem solid #CACACA;
+    color: $white;
+  }
+}
+
+@mixin button-gradient($color) {
+  // This function styles buttons based on theme base color (usually secondary-1)
+  background: linear-gradient(
+    lighten(desaturate($color, 27.03), 6.86),
+    $color
+  );
+  border: 0.0625rem solid lighten(desaturate($color, 26.67), 2.94);
+  color: $white;
+  &:hover {
+    background: linear-gradient(
+      lighten(desaturate(adjust-hue($color, -1), 56.80), 19.61),
+      lighten(desaturate($color, 45.95), 14.12)
+    );
+    border: 0.0625rem solid lighten(desaturate($color, 58.97), 16.47);
+  }
+  &:active {
+    background: linear-gradient(
+      darken(desaturate(adjust-hue($color, -1), 26.03), 0.78),
+      darken($color, 5.88)
+    );
+    border: 0.0625rem solid darken(desaturate($color, 25.95), 3.73)
+  }
+  @include button-disabled;
+}
+
+@mixin button-secondary-1($color) {
+  @include button-gradient($color);
+}
+
+@mixin button-secondary-3($color) {
+  @include button-gradient($color);
+}
+
+@mixin button-warning {
+  @include button-gradient($warning);
+}
+
+@mixin button-gray {
+  background: linear-gradient(#ffffff, #f5f5f5);
+  border: 0.0625rem solid #b9c2ca;
+  color: $gray-600;
+  &:hover {
+    background: linear-gradient(#ffffff, #f7f7f7);
+    border: 0.0625rem solid #c7ced4;
+  }
+  &:active {
+    background: linear-gradient(#f5f5f5, #ebebeb);
+    border: 0.0625rem solid #b9c2ca;
+  }
+  &:disabled {
+    @include button-disabled;
+  }
+}
+
+@mixin prompt-required {
+  animation-name: showRedBorder;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showRedBorder {
+  0% {
+    border: 0.0625rem solid $form-border;
+    box-shadow: none;
+  }
+  100% {
+    border: 0.0625rem solid $warning;
+    box-shadow: 0 0 0 0.0625rem $warning inset;
+  }
+}

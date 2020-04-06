@@ -1,0 +1,27 @@
+// Colors based on https://zpl.io/2Gw9AwJ
+
+// Base variables shared between all themes
+
+$appMaxWidth: 120rem;
+$appMinWidth: 86.25rem;
+$appMaxWidthForCenter: 90rem;
+$headerHeight: 4.375rem;
+$footerHeight: 4.375rem;
+$headerFooterHeight: 4.375rem;
+
+$announcement-banner: #ffd6d4 !default;
+$section-title-bg: #cde1d4 !default;
+$card-expand: #f8fafc !default;
+$warning:  #f4362f !default;
+$highlight: #fff106 !default;
+$form-border: #b9c2ca !default;
+
+$white:  #ffffff !default;
+$gray-100:  #f5f5f5 !default;
+$gray-200:  #e6e6e6 !default;
+$gray-300:  #cccccc !default;
+$gray-400:  #999999 !default;
+$gray-450:  #7f7f7f !default;
+$gray-500:  #666666 !default;
+$gray-600:  #333333 !default;
+$black: #000000 !default;
