@@ -4,23 +4,28 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteTodo } from '../actions'
-// function component
+import '../assets/style/components/ToDoList.scss'
+// Function Component
 const ToDoList = ({ todos, history, onDelete }) => {
   // 宣告一個新的 state 變數，我們稱作為「count」相當於 VUE data 私有的資料
   // const [count, setCount] = useState(0)
   const onEdit = (id) => {
     history.push(`/edit/${id}`)
   }
-  // const onDelete = (index) => {
-  //   onTodoClick(index)
-  // }
   const onCreatedTodo = () => {
     history.push('/created')
   }
 
   return (
     <div>
-      <div><button onClick={onCreatedTodo}>Created Todo</button></div>
+      <div>
+        <button
+          className='created-button secondary-1'
+          onClick={onCreatedTodo}
+        >
+          Created Todo
+        </button>
+      </div>
       <div className='to-do-list'>
         {
           todos.map((item, index) =>
@@ -47,10 +52,11 @@ ToDoList.propTypes = {
     content: PropTypes.string.isRequired,
     creatAt: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  onDelete: PropTypes.func
 }
 
-// class component
+// Class Component
 // class ToDoList extends React.Component {
 //   static propTypes = {
 //     todos: PropTypes.arrayOf(PropTypes.shape({

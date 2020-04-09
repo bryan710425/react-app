@@ -58,7 +58,7 @@ const Created = ({ todo, history, onTodoClick, onAddToDo }) => {
               <input
                 value={content}
                 type='text'
-                onChange={(event) => { setContent(event.target.value) }}
+                onChange={(event) => { setContent(event?.target?.value) }}
               />
             </div>
             {contentErrorText}
@@ -110,7 +110,7 @@ const getVisibleTodos = (todos, ownProps) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  todo: getVisibleTodos(state.todos, ownProps)
+  todo: getVisibleTodos(state?.todos, ownProps)
 })
 const mapDispatchToProps = (dispatch) => {
   return {
